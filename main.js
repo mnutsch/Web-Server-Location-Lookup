@@ -26,7 +26,7 @@ app.get('/', function(req, res)
 {
   
   userDefinedWebDomain = req.query.domain;
-  if(userDefinedWebDomain != null)
+  if(userDefinedWebDomain !== null)
   {
     webdomain = userDefinedWebDomain;
   }
@@ -87,15 +87,18 @@ app.get('/', function(req, res)
         '<br/>' + 
         '<span>The IP Address of the web domain is: ' + ip + '</span>' +
         '<br/>' + 
-        '<span>The closest city to your IP Address is ' + userCity  + '</span>'
+        '<span>The closest city to the IP Address is ' + userCity  + '</span>'
         + '<script>window.onload = function() {'
         + 'if(!window.location.hash) {'
         + 'window.location = window.location + "#loaded";'
         + 'window.location.reload();'
         + '}'
         + '}</script>'
-        + '<br/><br/><br/>'
-        + '<span>Written by Matt L. Nutsch, 8-22-2017</span></div>'
+        + '<br/>'
+        + '<span>(If the city does not update immediately, then refresh the page.)</span>'
+        + '<br/><br/><br/>' 
+        + '<span>Written by Matt L. Nutsch, 8-22-2017</span>'
+        + '</div>'
       });
       
       //output the response
@@ -132,3 +135,4 @@ function renderView(locals)
     </html>
   `);
 }
+
